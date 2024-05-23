@@ -1,0 +1,13 @@
+trigger:
+  branches:
+    include:
+      - prod1  # adjust this to your main branch name
+
+pool: Default
+
+steps:
+- script: |
+    terraform init
+    terraform plan 
+    terraform apply -auto-approve
+  displayName: 'terraform'
